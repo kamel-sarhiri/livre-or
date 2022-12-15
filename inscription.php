@@ -22,9 +22,6 @@
                             echo "<p style='color:red'>Veuillez remplir tous les champs</p>";
                         }
                     }
-                    if (isset($_GET['success'])) {
-                        echo "<p style='color:green'>Inscription réussie</p>";
-                    }
                 ?>
                 <div class="form">
                     <form action="inscription.php" method="post">
@@ -49,14 +46,14 @@
                         if($password == $password2){
                             $requete = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
                             $exec_requete = $connect -> query($requete);
-                            $reponse      = mysqli_fetch_array($exec_requete);
-                            $count = $reponse['count(*)'];
+                            $reponse      = mysqli_fetch_array($exec_requete); 
+                            $count = $reponse['count(*)']; 
 
                             if($count==0){
                                 $password = password_hash($password, PASSWORD_DEFAULT);
                                 $requete = "INSERT INTO utilisateurs (login, password) VALUES ('".$login."', '".$password."')";
                                 $exec_requete = $connect -> query($requete);
-                                header('Location: connexion.php');
+                                header('Location: connexion.php?success=1'); // inscription réussie
                             }
                             else{
                                 header('Location: inscription.php?erreur=1'); // utilisateur déjà existant
