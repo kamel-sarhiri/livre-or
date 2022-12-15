@@ -22,6 +22,9 @@
                             echo "<p style='color:red'>Veuillez remplir tous les champs</p>";
                         }
                     }
+                    if (isset($_GET['success'])) {
+                        echo "<p style='color:green'>Inscription réussie</p>";
+                    }
                 ?>
                 <div class="form">
                     <form action="inscription.php" method="post">

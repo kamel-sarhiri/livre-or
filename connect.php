@@ -5,5 +5,5 @@
 
 // Connexion à la base de données en ligne
 
- $connect = new mysqli('localhost', 'kamel', 'basededonnees', 'kamel-sarhiri_livreor')
+ $connect = new mysqli('localhost', 'kamel', 'serginio10', 'kamel-sarhiri_livreor')
 ?>
